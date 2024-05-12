@@ -1,4 +1,4 @@
-package org.derewah.skriptanvilgui.utils;
+package org.derewah.skriptbstats.utils;
 
 
 import org.bukkit.Bukkit;

@@ -1,182 +1,190 @@
-# IMPORTANT
-Unfortunately, I lost access to this account (https://github.com/DereWah).
-I'm making this edit via a logged in session on my IDE. All of my future activity will be displayed on
-https://github.com/Dere-Wah. Any further edit to my existing repos will be done on the fork(where I can actually post releases etc.)
-(https://github.com/Dere-Wah/Skript-AnvilGUI). Sorry for the inconvenience.
+# Skript-bStats ![Downloads](https://img.shields.io/github/downloads/Dere-Wah/Skript-bStats/total)
 
-DOWNLOAD LINK: https://github.com/Dere-Wah/Skript-AnvilGUI/releases/
+A Skript Addon that allows users to safely track their skripts' performance using bStats.
 
-# Skript-AnvilGUI ![Downloads](https://img.shields.io/github/downloads/DereWah/Skript-AnvilGUI/total)
-
-A Skript Addon that allows users to create Anvil GUIs to read user input.
-The skript works with Paper/Spigot 1.12+ and requires Skript 2.6+
-
-# Tutorial
-
-An in-depth tutorial written by me is currently WIP and will be out soon. In the meanwhile refer to the docs below.
-	
-[![SkriptHubViewTheDocs](http://skripthub.net/static/addon/ViewTheDocsButton.png)](http://skripthub.net/docs/?addon=Skript-AnvilGUI)
-
-# IMPORTANT
-
-If you are using the addon in Skript version 2.7+, please use the expression "virtual anvil" instead of "anvil gui".
-For example, use "text of event-virtual anvil" instead of "text of event-anvil gui".
-
-If you are on a lower version, you should be good both
-
-![Stats](https://bstats.org/signatures/bukkit/Skript-AnvilGUI.svg)
+![Stats](https://bstats.org/signatures/bukkit/Skript-bStats.svg)
 
 # Documentation
 
 ## Effects
 
-### Open Anvil GUI
+### Register New bStats Metric
 ```
-open (anvilgui|anvil gui) %virtualanvil% to %players%
+(create|register) [new] [bstats] metric[s] with [service] id %integer%
 ```
 
-Open an Anvil GUI to a player. Note that once the AnvilGUI is opened to a player, you can't change it "live" while it's being shown.
-Therefore you first must set the slots of the GUI, and then open it to the player.
+Register a new metric for a specific service id. A metric is a "link" that periodically sends data to the bStats API.
+This effect can only be performed in an On Load event.
 
 <details>
-	<summary>Open Anvil GUI</summary>
+	<summary>Register New Metric</summary>
 
         ```
-            command /openanvil:
-                trigger:
-                    set {_gui} to a new anvil gui
-                    #set here slots and title or text before opening it.
-                    #check expressions and examples below to learn how.
-                    open anvil gui {_gui} to player
+            on load:
+                register new bstats metric with service id 21875
+                #add your custom charts here
+                start bstats metric with service id 21875
+                #after starting a metric it can't be no longer modified.
         ```
 </details>
 
-## Types
-
-### Anvil GUI
+### Start bStats Metric
 ```
-%virtualanvil%
-virtual anvil
-event-virtual anvil
+start [bstats] metric[s] with [service] id %integer%
 ```
 
-This type holds all the information about an Anvil GUI.
-You can create a new object with the new anvil gui expression and edit its content (such as the items) with the specific expressions.
+Start a bStats metric that you previously registered. Please note that if you did not register the metric first with the
+register metric effect, this will do nothing. After starting a metric, you can no longer edit it or add custom charts.
+You should add custom charts in between Registering and Starting a metric.
+This effect can only be performed in an On Load event.
 
 <details>
-	<summary>Anvil GUI</summary>
-
-		```
-            on anvil gui click:
-                set title of event-virtual anvil to event-text
-                open anvil gui event-virtual anvil to player
-                #this will move the text in the anvil gui input to the name of the inventory
-		```
-
-</details>
-
-## Events
-
-### Anvil GUI Close
-```
-on anvil gui close
-```
-
-Fires whenever an anvil gui created with this addon is closed. You can access the following values from this event:
-event-text (content of the GUI when the GUI was closed), event-anvil gui (the original anvil object. You can access items in the anvil GUI or its inventory title with expressions below.)
-
-<details>
-	<summary>Uncloseable AnvilGUI</summary>
+	<summary>Start Metric</summary>
 
         ```
-            on anvil gui close:
-                if title of event-virtual anvil is "You can't close this unless you type 1234":
-                    if event-text is not "1234":
-                        cancel event
-		```
+            on load:
+                register new bstats metric with service id 21875
+                #add your custom charts here
+                start bstats metric with service id 21875
+                #after starting a metric it can't be no longer modified.
+        ```
 </details>
 
-### Anvil GUI Click
+### Shutdown Metric
 ```
-on anvil gui click
+(stop|shutdown|disable) [bstats] metric[s] with [service] id %integer%
 ```
 
-Fires whenever an anvil gui created with this addon is clicked. You can access the following values from this event:
-event-integer (index of slot that was clicked), event-text (content of the GUI when the GUI was clicked),
-event-anvil gui (the original anvil object. You can access items in the anvil GUI or its inventory title with expressions below.)
+Stops a bStats metric. The metric will stop sending data to the bStats servers. It is good practice to always add this
+effect in your skripts, if you're using this addon. This is to stop tracking data when players disable your skripts. This
+effect can only be used in on unload events.
 
 <details>
-	<summary>Anvil GUI Password</summary>
+	<summary>Stop Metric</summary>
 
         ```
-		    command /password:
-                trigger:
-                    set {_gui} to a new anvil gui named "&0Insert password" with default text "password"
-                    open anvil gui {_gui} to player
-
-            on anvil gui click:
-                if event-integer is 2: #clicked the output item slot
-                    if title of event-virtual anvil is "&0Insert password":
-                        if event-text is "1234":
-                            close player's inventory
-                            send message "&aCorrect password."
-                        else:
-                            set text of event-virtual anvil to "Wrong password"
-                            open anvil gui event-virtual anvil to player #reopen the anvil gui, but with a different text.
-		```
+            on unload:
+                stop bstats metric with service id 21875
+        ```
 </details>
 
-## Expressions
 
-### New Anvil GUI
+### Add Simple Pie Chart to Metric
 ```
-new anvil gui
-[a] new anvil gui (named|with title) %string% with [default] text %string%
+send value %string% to simple pie chart with id %string% of metric %integer%
 ```
-
-Returns a new anvil gui. If no title and default text are specified, it will use some placeholder text.
-
-### Anvil GUI TItle
-```
-[the] title of %virtualanvil%
-```
-
-Access the title (inventory name) of an Anvil GUI. In 1.12.2, the name of the AnvilGUI will not change when displayed.
-This is not really an issue (other than for aesthetic) as the title is still saved and can be accessed (to check for specific anvil GUIs in events).
-
-### Anvil GUI Text
-```
-text of %virtualanvil%
-```
-
-Access the default text of an AnvilGUI. This will be filled when the anvil is opened to a player.
-
-### Anvil GUI Item
-```
-(left|right|output) (item|slot) of %virtualanvil%
-```
-
-Access a specific item in the anvil GUI. You can set these to any itemstack. Please note that the server wipes and overwrites
-the items in the output GUI when opened, so as of right now only changing the left and right item works.
+This effect adds a new Custom Simple Pie Chart to an existing metric. The value that will be sent to the metric can be a string, a
+string variable, or a function that returns a string. The addon will calculate the value each time, so you can send in
+dynamic data. These executions, however, will be "event-context-free". This means that you'll have to specify all of the
+values that in an on load event might be omitted. Check other chart types for a better explanation on this matter. This
+feature is good for tracking which features of your skript people are using, e.g. if some options of your skript are
+enabled or not.
+This effect can only be performed in an On Load event.
 
 <details>
-	<summary>Anvil GUI Set Item</summary>
+	<summary>Simple Pie Chart</summary>
 
-	```
-        command /anvilgui:
-            trigger:
-                set {_gui} to a new anvil gui
-                set left item of {_gui} to barrier
-                set right item of {_gui} to emerald block
-                set output item of {_gui} to barrier #this might be erased by the server, you can't do nothing about it.
-                open anvil gui {_gui} to player
-	```
+        ```
+            Options:
+	            version: 1.0
+
+            on load:
+                register new bstats metric with service id 21875
+                send value "{@version}" to simple pie chart with id "deretest_version" of metric 21875
+                start bstats metric with service id 21875
+                #after starting a metric it can't be no longer modified.
+        ```
+
 </details>
+
+### Add Advanced Pie Chart to Metric
+```
+send value %string% with weight %integer% to advanced pie chart with id %string% of metric %integer%
+```
+This effect adds a new Custom Advanced Pie Chart to a metric. This pie allows you to send multiple values with different
+weights. For the string and weight you can execute functions that return the right type.
+This effect can only be performed in an On Load event.
+
+<details>
+	<summary>Advanced Pie Metric</summary>
+
+        ```
+            on load:
+                register new bstats metric with service id 21875
+                send value "Apples" with weight countItems(apple) to advanced pie chart with id "famous_foods" of metric 21875
+	            send value "Bread" with weight countItems(bread) to advanced pie chart with id "famous_foods" of metric 21875
+                start bstats metric with service id 21875
+                #after starting a metric it can't be no longer modified.
+
+
+            local function countItems(i: item) :: integer:
+	            loop all players:
+		        add amount of {_i} in loop-player's inventory to {_x}
+	            return {_x}
+        ```
+
+</details>
+
+
+### Add Drilldown Pie Chart to Metric
+```
+send value %string% with weight %integer% in category %string% to drilldown pie chart with id %string% of metric %integer%
+```
+This effect adds a new Custom Drilldown Pie Chart to a metric. This pie is the most complex of them all. It allows you to
+send a value and it's weight to a category, that will be displayed against other categories. For example, if you want to
+count the amount of friendly and hostile monsters, these 2 categories, when clicked, will display the types of each single
+entity you're tracking. (view the example). It is really important to specify "in all worlds" when using such expressions,
+as when the plugin will execute these it will treat them as a function, which is event-context free.
+This effect can only be performed in an On Load event.
+
+<details>
+	<summary>Advanced Pie Metric</summary>
+
+        ```
+            on load:
+                register new bstats metric with service id 21875
+	            send value "Zombies" with weight (amount of zombies in all worlds) in category "Monsters" to drilldown pie chart with id "active_mobs" of metric 21875
+	            send value "Sheeps" with weight (amount of sheeps in all worlds) in category "Animals" to drilldown pie chart with id "active_mobs" of metric 21875
+                start bstats metric with service id 21875
+                #after starting a metric it can't be no longer modified.
+        ```
+
+</details>
+
+
+### Add Single Line Chart to Metric
+```
+send value %integer% to single line chart with id %string% of metric %integer%
+```
+This effect adds a new Custom Single Chart to an existing metric. The value that will be sent to the metric can be a string, a
+string variable, or a function that returns an integer. The bStats api will sum all of these numbers together from all
+the servers using your script, and will display a line with the trend. This is good for activity tracking, such as how
+many players are online when using your skript, etc. (this is specific example is actually useless, as there already is
+a default line chart with this data.)
+This effect can only be performed in an On Load event.
+
+<details>
+	<summary>Simple Pie Chart</summary>
+
+        ```
+            on load:
+                register new bstats metric with service id 21875
+                send value (size of all players) to single line chart with id "skript_active_players" of metric 21875
+                start bstats metric with service id 21875
+                #after starting a metric it can't be no longer modified.
+        ```
+
+</details>
+
 
 ## FAQ
 
-#### Output items in the GUI are not being set
+#### Is this a good idea?
 
-This is a known issue with the original AnvilGUI library. Until they find a workaround, I can't do much on this addon.
+I don't know. I'm making this addon for fun and to see how the use of this feature might be used by the community. I do
+not recommend using this addon and syntax in your finished skripts YET, as it's still being tested. The ultimate goal would
+be to have these features be implemented in SkriptLang itself, to avoid even having server owners have to install this
+addon at all simply for data tracking. If anyone wants to discuss in private with me about this, feel free to DM me on
+https://t.me/DereWah or discord @DereWah. If you have a suggestion or bug feel free to open an issue.
 
 
