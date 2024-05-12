@@ -81,6 +81,9 @@ feature is good for tracking which features of your skript people are using, e.g
 enabled or not.
 This effect can only be performed in an On Load event.
 
+![image](https://github.com/Dere-Wah/Skript-bStats/assets/160314410/1fd6110d-b4ba-401e-9190-923ae3013eed)
+
+
 <details>
 	<summary>Simple Pie Chart</summary>
 
@@ -104,6 +107,9 @@ send value %string% with weight %integer% to advanced pie chart with id %string%
 This effect adds a new Custom Advanced Pie Chart to a metric. This pie allows you to send multiple values with different
 weights. For the string and weight you can execute functions that return the right type.
 This effect can only be performed in an On Load event.
+
+![image](https://github.com/Dere-Wah/Skript-bStats/assets/160314410/6cf69a87-a4ed-4026-b2ae-470076e49fb0)
+
 
 <details>
 	<summary>Advanced Pie Metric</summary>
@@ -137,8 +143,14 @@ entity you're tracking. (view the example). It is really important to specify "i
 as when the plugin will execute these it will treat them as a function, which is event-context free.
 This effect can only be performed in an On Load event.
 
+![image](https://github.com/Dere-Wah/Skript-bStats/assets/160314410/6879ea3e-9c52-4232-9f9e-86ab95c1e0cb)
+
+![image](https://github.com/Dere-Wah/Skript-bStats/assets/160314410/0c9c753f-4cd0-4f53-bad7-0f678473a08e)
+
+
+
 <details>
-	<summary>Advanced Pie Metric</summary>
+	<summary>Drilldown Pie Metric</summary>
 
         ```
             on load:
@@ -163,8 +175,11 @@ many players are online when using your skript, etc. (this is specific example i
 a default line chart with this data.)
 This effect can only be performed in an On Load event.
 
+![image](https://github.com/Dere-Wah/Skript-bStats/assets/160314410/fcd7d9e5-7ffb-449c-80d6-6b87d5e7a2a8)
+
+
 <details>
-	<summary>Simple Pie Chart</summary>
+	<summary>Single Line Chart</summary>
 
         ```
             on load:
