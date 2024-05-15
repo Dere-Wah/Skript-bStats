@@ -8,7 +8,7 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 import org.bukkit.event.Event;
 import org.derewah.skriptbstats.SkriptbStats;
-import org.derewah.skriptbstats.wrappers.Metric;
+import org.derewah.skriptbstats.wrappers.SkriptMetric;
 
 public class EffShutdownMetric extends Effect {
     static{
@@ -40,9 +40,9 @@ public class EffShutdownMetric extends Effect {
         Integer serviceId = exprServiceId.getSingle(event);
 
         if(serviceId != null){
-            Metric m = SkriptbStats.getInstance().skriptMetrics.getMetric(serviceId);
+            SkriptMetric m = SkriptbStats.getInstance().metricsManager.getMetric(serviceId);
             if(m != null){
-                m.shutdownMetric();
+                m.shutdown();
             }
         }
     }

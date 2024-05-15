@@ -4,35 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a75a9248-d4fc-43c7-a895-ac9476e32a52" name="Changes" comment="closes #7">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/SkriptAnvilGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/SkriptbStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/SkriptMetrics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/anvilgui/Anvil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/effects/EffOpenAnvilGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffRegisterMetrics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/events/Anvil/BridgeAnvilClick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/events/Anvil/BridgeAnvilClose.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/events/EvtOnAnvilGUIClick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/events/EvtOnAnvilGUIClose.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/expressions/ExprAnvilGUIItemLeft.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/expressions/ExprAnvilGUIItemOutput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/expressions/ExprAnvilGUIItemRight.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/expressions/ExprAnvilGUIText.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/expressions/ExprAnvilGUITitle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/expressions/ExprNewAnvilGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptanvilgui/utils/UpdateChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/utils/UpdateChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+    <list default="true" id="a75a9248-d4fc-43c7-a895-ac9476e32a52" name="Changes" comment="test">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/wrappers/SkriptMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/SkriptMetrics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/MetricsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/SkriptbStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/SkriptbStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffAddAdvancedPieChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffAddAdvancedPieChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffAddDrilldownPieChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffAddDrilldownPieChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffAddSimplePieChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffAddSimplePieChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffAddSingleLineChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffAddSingleLineChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffRegisterMetrics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffRegisterMetrics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffShutdownMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffShutdownMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffStartMetrics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/effects/EffStartMetrics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/derewah/skriptbstats/wrappers/Metric.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +31,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -54,11 +43,14 @@
     &quot;state&quot;: &quot;OPEN&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="ede52e0b-1e72-4c21-9e25-e4eaca680caf" />
+  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="24e03eac-122d-430f-895b-da32c67d61b8" />
-        <option name="url" value="https://github.com/DereWah/Skript-AnvilGUI.git" />
+        <option name="accountId" value="ede52e0b-1e72-4c21-9e25-e4eaca680caf" />
+        <option name="url" value="https://github.com/Dere-Wah/Skript-bStats" />
       </UrlAndAccount>
     </option>
   </component>
@@ -77,18 +69,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/User/IdeaProjects/Skript-bStats",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/IdeaProjects/Skript-bStats&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.derewah.skriptbstats.effects" />
@@ -152,7 +144,21 @@
       <option name="project" value="LOCAL" />
       <updated>1715420498023</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="test">
+      <created>1715513625557</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715513625557</updated>
+    </task>
+    <task id="LOCAL-00009" summary="test">
+      <created>1715513712783</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715513712783</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,7 +166,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -173,6 +196,7 @@
     <MESSAGE value="fix: change relocation path" />
     <MESSAGE value="feat: auto-disable plugin when non-compatible version is detected. fix: added api-version in plugin.yml" />
     <MESSAGE value="closes #7" />
-    <option name="LAST_COMMIT_MESSAGE" value="closes #7" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
 </project>

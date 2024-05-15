@@ -6,10 +6,9 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import org.bstats.bukkit.Metrics;
 import org.bukkit.event.Event;
 import org.derewah.skriptbstats.SkriptbStats;
-import org.derewah.skriptbstats.wrappers.Metric;
+import org.derewah.skriptbstats.wrappers.SkriptMetric;
 
 public class EffAddSimplePieChart extends Effect {
     static{
@@ -46,7 +45,7 @@ public class EffAddSimplePieChart extends Effect {
         String chartId = exprChartId.getSingle(event);
         String value = exprValue.getSingle(event);
         if(serviceId != null && chartId != null && value != null){
-            Metric m = SkriptbStats.getInstance().skriptMetrics.getMetric(serviceId);
+            SkriptMetric m = SkriptbStats.getInstance().metricsManager.getMetric(serviceId);
             if(m == null){
                 SkriptbStats.getInstance().getLogger().warning("[Skript-bStats] Could not find a registered metric" +
                         "with service id" + serviceId + ". Make sure to register it first, and then start it.");

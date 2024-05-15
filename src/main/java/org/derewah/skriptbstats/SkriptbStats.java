@@ -1,17 +1,12 @@
 package org.derewah.skriptbstats;
 
-import org.bstats.bukkit.Metrics;
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
-import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.derewah.skriptbstats.utils.UpdateChecker;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SkriptbStats extends JavaPlugin {
 
@@ -19,7 +14,7 @@ public class SkriptbStats extends JavaPlugin {
     SkriptAddon addon;
     public static FileConfiguration config;
 
-    public SkriptMetrics skriptMetrics = null;
+    public MetricsManager metricsManager = null;
     public void onEnable(){
         instance = this;
         addon = Skript.registerAddon(this);
@@ -39,7 +34,8 @@ public class SkriptbStats extends JavaPlugin {
         //    }
         //});
 
-        skriptMetrics = new SkriptMetrics();
+        metricsManager = new MetricsManager();
+
 
 
         Bukkit.getLogger().info("[Skript-bStats] has been enabled!");
@@ -54,6 +50,6 @@ public class SkriptbStats extends JavaPlugin {
     }
 
     public void onDisable(){
-        skriptMetrics.cleanupMetrics();
+        metricsManager.cleanupMetrics();
     }
 }

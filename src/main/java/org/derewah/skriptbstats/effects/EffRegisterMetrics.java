@@ -2,13 +2,10 @@ package org.derewah.skriptbstats.effects;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.events.EvtScript;
-import ch.njol.skript.events.bukkit.ScriptEvent;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
-import ch.njol.skript.lang.parser.ParserInstance;
 import ch.njol.util.Kleenean;
-import org.bstats.bukkit.Metrics;
 import org.bukkit.event.Event;
 import org.derewah.skriptbstats.SkriptbStats;
 
@@ -42,7 +39,7 @@ public class EffRegisterMetrics extends Effect {
         Integer serviceId = exprServiceId.getSingle(event);
 
         if(serviceId != null){
-            SkriptbStats.getInstance().skriptMetrics.registerMetric(serviceId);
+            SkriptbStats.getInstance().metricsManager.registerMetric(serviceId);
         }
     }
 

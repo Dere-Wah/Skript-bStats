@@ -1,23 +1,23 @@
 package org.derewah.skriptbstats;
 
-import org.derewah.skriptbstats.wrappers.Metric;
+import org.derewah.skriptbstats.wrappers.SkriptMetric;
 
 import java.util.HashMap;
 
-public class SkriptMetrics {
+public class MetricsManager {
 
-    private HashMap<Integer, Metric> createdMetrics = new HashMap<>();
+    private HashMap<Integer, SkriptMetric> createdMetrics = new HashMap<>();
 
     public void registerMetric(int serviceId){
         if(createdMetrics.containsKey(serviceId)){
-            createdMetrics.get(serviceId).shutdownMetric();
+            createdMetrics.get(serviceId).shutdown();
             createdMetrics.remove(serviceId);
         }
-        Metric newMetric = new Metric(serviceId);
+        SkriptMetric newMetric = new SkriptMetric(serviceId);
         createdMetrics.put(serviceId, newMetric);
     }
 
-    public Metric getMetric(int serviceId){
+    public SkriptMetric getMetric(int serviceId){
         if(createdMetrics.containsKey(serviceId)){
             return createdMetrics.get(serviceId);
         }
@@ -25,9 +25,9 @@ public class SkriptMetrics {
     }
 
     public void cleanupMetrics(){
-        for(Metric m : createdMetrics.values()){
+        for(SkriptMetric m : createdMetrics.values()){
             if(m.isActive()){
-                m.getLiveMetric().shutdown();
+                m.shutdown();
             }
         }
         createdMetrics.clear();
